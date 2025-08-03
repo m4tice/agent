@@ -3,15 +3,15 @@ BASE = "localhost"
 
 # Home URL
 HOME_PORT = 8010
-HOME_URL = f"{BASE}:{HOME_PORT}"
+HOME_URL = f"http://{BASE}:{HOME_PORT}"
 
 # Context URL
 CONTEXT_PORT = 8020
-CONTEXT_URL = f"{BASE}:{CONTEXT_PORT}"
+CONTEXT_URL = f"http://{BASE}:{CONTEXT_PORT}"
 
 # Agent URL
-AGENT_PORT = 8030
-AGENT_URL = f"{BASE}:{AGENT_PORT}"
+AGENT_PORT = 11434
+AGENT_URL = f"http://{BASE}:{AGENT_PORT}"
 
 # State constants
 STATE_ON = True
