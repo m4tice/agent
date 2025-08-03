@@ -1,0 +1,120 @@
+:root {
+    --clr-light: burlywood;
+    --clr-dim: rgb(84, 65, 40);
+    --clr-bg: #040409;
+    --font-big: x-large;
+    --font-small: large;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    /* Color */
+    background: var(--clr-bg);
+    color: var(--clr-light);
+
+    /* Font */
+    font-family: "Arial", sans-serif;
+
+    /* Extra */
+    overflow: hidden;
+}
+
+#container {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.light {
+    /* Size and shape */
+    width: 200px;
+    height: 80px;
+    border-radius: 0.25em;
+    cursor: pointer;
+
+    /* Positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Colors and borders */
+    font-weight: bold;
+    font-size: var(--font-big);
+    color: var(--clr-dim);
+    border: var(--clr-dim) 0.125em solid;
+}
+
+.light[data-state="1"] {
+    /* Colors and borders */
+    font-weight: bold;
+    font-size: var(--font-big);
+    color: var(--clr-light);
+    border: var(--clr-light) 0.125em solid;
+
+    /* Effects */
+    position: relative;
+    padding: 0.25em 1em;
+    text-shadow:
+        0 0 .20em #FFF7,
+        0 0 .30em var(--clr-light);
+    box-shadow:
+        inset 0 0 .5em var(--clr-light),
+        0 0 .5em var(--clr-light);
+}
+
+.light::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-light);
+    transform:
+        perspective(0.2em) rotateX(10deg) scale(1.3, 0.40);
+    filter: blur(0.5em);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 100ms linear;
+}
+
+/* .light::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--clr-light);
+    box-shadow: 0 0 2em var(--clr-light);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 100ms linear;
+} */
+
+.light:hover::after {
+    opacity: 1;
+}
+
+/* .light:hover,
+.light:focus {
+    color: white;
+} */
+
+.light:hover::before {
+    opacity: 0.8;
+}

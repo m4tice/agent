@@ -1,0 +1,106 @@
+:root {
+    --main: burlywood;
+    --side: rgb(84, 65, 40);
+    --background: #040409;
+    --fontbig: x-large;
+    --fontsmall: large;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+
+#container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.light {
+    /* Size and shape */
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /* Positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Colors and borders */
+    font-weight: bold;
+    font-size: x-large;
+    transition: all 0.3s ease;
+    background-color: #040409;
+    color: var(--side);
+    border: 2px solid var(--side);
+    box-shadow: 0 0 0 transparent;
+}
+
+.light[data-state="1"] {
+    position: relative;
+    color: var(--main);
+    font-size: var(--fontsmall);
+    font-weight: bold;
+    text-shadow: 
+        0 0 0.20em #FFF7,
+        0 0 0.30em var(--main);
+    border: 2px solid var(--main);
+    box-shadow: 
+        inset 0 0 0.5em var(--main),
+              0 0 0.5em var(--main);
+    z-index: 1;
+}
+
+/* Bottom glow reflection */
+.light[data-state="1"]::before {
+    content: "";
+    position: absolute;
+    top: 140%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    transform:
+        perspective(0.2em)
+        rotateX(10deg)
+        scale(1.3, 0.4);
+    filter: blur(0.5em);
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 100ms linear;
+}
+
+/* Glow behind the button */
+.light[data-state="1"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    box-shadow: 0 0 2em var(--main);
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 100ms linear;
+}
+
+/* .light[data-state="1"]:hover::after {
+    opacity: 1;
+}
+
+.light[data-state="1"]:hover::before {
+    opacity: 0.8;
+} */

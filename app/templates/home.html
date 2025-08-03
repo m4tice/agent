@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lights</title>
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+    <div id="container">
+        {% for light_id, light_data in lights.items() %}
+            <div class="light" id="light-{{ light_id }}" data-state="{{ '1' if light_data.status else '0' }}">
+                {{ light_data.name }}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="/static/home.js"></script>
+</body>
+</html>
