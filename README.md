@@ -1,27 +1,21 @@
-# agent
+# Agent
 ## How-to
-### 1. Run server
-Change directory to mcp:
+### 0. Activate the virtual environment
+Open terminal and type the following command:  
 ```
-cd mcp
+source .venv/bin/activate
 ```
-Run server on a selected port:
+### 1. Run the application
+Run the application:
 ```
-python -m uvicorn main:app --reload --port <port-number>
+python app\home.py
 ```
-### 2. Query
+### 2. Run the LLM model
 Either run llm/main.py by:
 ```
-cd llm
+python llm\llm.py
 ```
-and run:
-```
-python main.py
-```
-or via curl command:
-```
-curl -X POST "http://localhost:8000/mcp/context" -H "Content-Type: application/json" -d "{\"user_id\": \"user_123\", \"context_type\": \"memory\", \"request_type\": \"retrieve\"}"
-```
+After this, type your query in the same terminal.
 ### 3. Useful commands
 Check for port usage on terminal:
 ```
